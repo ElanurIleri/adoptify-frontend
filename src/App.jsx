@@ -7,27 +7,31 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SearchPet from './pages/SearchPet';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from "./AuthContext";
+
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Router>
-        <Navbar />
-        <div className="flex flex-grow">
-          <Sidebar />
-          <div className="flex-grow  overflow-y-auto">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/searchpet" element={<SearchPet />} /> {/* SearchPet sayfası */}
-            </Routes>
+    <AuthProvider>
+      <div className="flex flex-col min-h-screen">
+        <Router>
+          <Navbar />
+          <div className="flex flex-grow">
+            <Sidebar />
+            <div className="flex-grow overflow-y-auto">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/searchpet" element={<SearchPet />} /> {/* SearchPet sayfası */}
+              </Routes>
+            </div>
           </div>
-        </div>
-        <Footer />
-      </Router>
-    </div>
+          <Footer />
+        </Router>
+      </div>
+    </AuthProvider>
   );
-}
+};
 
 export default App;

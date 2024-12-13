@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { BiLogIn } from "react-icons/bi";
 import { BiSolidUserPlus } from "react-icons/bi";
 import { Link } from 'react-router-dom';
+import { useAuth } from '../AuthContext'; // AuthContext'i kullanıyoruz
 
 const Navbar = () => {
+  const { isLoggedIn, logout } = useAuth(); // Oturum açma durumunu ve logout fonksiyonunu alıyoruz
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -75,20 +77,31 @@ const Navbar = () => {
           </div>
 
           {/* Secondary Nav */}
-          <div className="hidden md:flex items-center space-x-4 ml-auto">   
-            <Link to="/login" className="text-gray-700 hover:text-gray-900">
-              <span className="flex items-center space-x-2">
-                <BiLogIn className="w-6 h-6" />
-                <span>Login</span>
-              </span>
-            </Link> 
-            
-            <Link to="/signup" className="py-2 px-6 bg-blue-500 hover:bg-blue-700 text-gray-900 hover:text-white rounded transition duration-300">
-              <span className="flex items-center space-x-2">
-                <BiSolidUserPlus className="w-6 h-6" />
-                <span>Signup</span>
-              </span>
-            </Link>         
+          <div className="hidden md:flex items-center space-x-4 ml-auto">
+            {isLoggedIn ? (
+              <button
+                onClick={logout}
+                className="py-2 px-6 bg-red-500 hover:bg-red-700 text-white rounded transition duration-300"
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link to="/login" className="text-gray-700 hover:text-gray-900">
+                  <span className="flex items-center space-x-2">
+                    <BiLogIn className="w-6 h-6" />
+                    <span>Login</span>
+                  </span>
+                </Link> 
+                
+                <Link to="/signup" className="py-2 px-6 bg-blue-500 hover:bg-blue-700 text-white rounded transition duration-300">
+                  <span className="flex items-center space-x-2">
+                    <BiSolidUserPlus className="w-6 h-6" />
+                    <span>Signup</span>
+                  </span>
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
@@ -107,16 +120,29 @@ const Navbar = () => {
             >
               About
             </a>
-            <Link
-              to="/login"
-              className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded">
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded">
-              Signup
-            </Link>
+            {isLoggedIn ? (
+              <button
+                onClick={logout}
+                className="block py-2 px-4 text-red-600 hover:bg-red-200 rounded"
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded"
+                >
+                  Signup
+                </Link>
+              </>
+            )}
           </div>
         )}
       </div>
