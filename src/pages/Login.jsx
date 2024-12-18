@@ -40,7 +40,7 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-baseline py-24 justify-center min-h-screen">
             <div className="w-full sm:max-w-sm bg-white shadow-md rounded-lg p-6">
                 <div className="text-center">
                     <img
@@ -49,7 +49,7 @@ const Login = () => {
                         alt="Your Company"
                     />
                     <h2 className="mt-6 text-2xl font-bold tracking-tight text-gray-900">
-                        Sign in to your account
+                        Sign In To Your Account
                     </h2>
                 </div>
 

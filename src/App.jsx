@@ -17,7 +17,6 @@ const App = () => {
         <Router>
           <Navbar />
           <div className="flex flex-grow">
-            <Sidebar />
             <div className="flex-grow overflow-y-auto">
               <Routes>
                 <Route path="/" element={<HomePage />} />
