@@ -19,7 +19,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-4">
             <div className="flex-shrink-0">
-              <img src="logo.svg" alt="Logo" className="w-20 h-20" />
+              <img src="Adoptify_logo.png" alt="Logo" className="w-20 h-20" />
             </div>
             <Link to="/" className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
               <span className="font-bold">Adoptify</span>
@@ -71,9 +71,10 @@ const Navbar = () => {
             <Link to="/searchpet" className="py-5 px-3 text-gray-700 hover:text-gray-900">
               Search Pet
             </Link>
-            <a href="#" className="py-5 px-3 text-gray-700 hover:text-gray-900">
+            <Link to="/about" className="py-5 px-3 text-gray-700 hover:text-gray-900">
               About
-            </a>
+            </Link>
+
           </div>
 
           {/* Secondary Nav */}

@@ -1,11 +1,15 @@
 import React from "react";
 
-const PetCard = ({ name, type, age }) => {
+const PetCard = ({ name, type, age, photo }) => {
   return (
     <div className="bg-white shadow-md rounded-lg p-4 text-center transform hover:scale-105 hover:shadow-lg transition duration-300">
-      {/* Pet Image Placeholder */}
-      <div className="w-20 h-20 bg-gray-200  mx-auto mb-4 flex items-center justify-center">
-        <span className="text-sm text-gray-500">Image</span>
+      {/* Pet Image */}
+      <div className="w-full h-48 bg-gray-200 mb-4 flex items-center justify-center">
+        <img
+          src={photo} // Prop üzerinden gelen fotoğraf URL'si burada kullanılıyor
+          alt={name}   // Fotoğrafın alt metni olarak pet'in ismi kullanılabilir
+          className="w-full h-full object-cover rounded-md"
+        />
       </div>
 
       {/* Pet Details */}
