@@ -9,7 +9,7 @@ const About = () => {
         { name: 'Onur KONUK', photo: '/Onur_Konuk.jpg', role: 'DevOps Engineer' },
         { name: 'Sema Nimet ÜNAL', photo: '/SemaNimet_Unal.jpg', role: 'Full Stack Developer' },
         { name: 'Zehra İkbal ÖZTÜRK', photo: '/ZehraIkbal_Ozturk.jpg', role: 'QA Engineer' },
-        { photo: '/Adoptify_logo.png', name: 'Adoptify', role: 'Our Logo' }, // Logo için ekleme
+        { photo: '/Adoptify_logo.png', name: 'Adoptify', role: 'Adoptify Pet Adopting'}, // Logo için ekleme
     ];
 
     return (
