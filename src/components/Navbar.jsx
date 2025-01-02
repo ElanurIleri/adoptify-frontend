@@ -17,6 +17,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     await logout(); 
     navigate("/"); 
+    window.location.reload();
   };
 
   return (
