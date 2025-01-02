@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import { BiLogIn } from "react-icons/bi";
 import { BiSolidUserPlus } from "react-icons/bi";
-import { Link } from 'react-router-dom';
-import { useAuth } from '../AuthContext'; // AuthContext'i kullanıyoruz
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext'; 
 
 const Navbar = () => {
-  const { isLoggedIn, logout } = useAuth(); // Oturum açma durumunu ve logout fonksiyonunu alıyoruz
+  const { isLoggedIn, logout } = useAuth(); 
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const navigate = useNavigate(); 
+
+  const handleLogout = async () => {
+    await logout(); 
+    navigate("/"); 
   };
 
   return (
@@ -81,7 +88,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4 ml-auto">
             {isLoggedIn ? (
               <button
-                onClick={logout}
+                onClick={handleLogout}
                 className="py-2 px-6 bg-red-500 hover:bg-red-700 text-white rounded transition duration-300"
               >
                 Logout
@@ -123,7 +130,7 @@ const Navbar = () => {
             </a>
             {isLoggedIn ? (
               <button
-                onClick={logout}
+                onClick={handleLogout}
                 className="block py-2 px-4 text-red-600 hover:bg-red-200 rounded"
               >
                 Logout
